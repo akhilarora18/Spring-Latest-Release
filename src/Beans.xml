@@ -3,8 +3,18 @@
        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation = "http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-    <bean id="helloSpring" class="com.asquare.HelloSpring">
+
+    <bean class="com.asquare.HelloSpringPostProcessor"></bean>
+
+    <bean id="beanTemplate" abstract="true">
+        <property name="parentMessage" value="I am a message from Parent"></property>
+    </bean>
+
+    <bean id="helloSpring" class="com.asquare.HelloSpring"  init-method="init" destroy-method="destroy">
         <property name="message" value="Hello Spring !!"></property>
+    </bean>
+    <bean id="springBeanInheritance" class="com.asquare.SpringBeanInheritance"  parent="beanTemplate">
+        <property name="message" value="I am a message from same class !!"></property>
     </bean>
 
 </beans>

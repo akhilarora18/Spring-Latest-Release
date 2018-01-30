@@ -9,5 +9,11 @@ public class MainApp {
 
         HelloSpring obj = (HelloSpring) context.getBean("helloSpring");
         obj.getMessage();
+        System.out.println();
+
+        SpringBeanInheritance obj2 = (SpringBeanInheritance) context.getBean("springBeanInheritance");
+        obj2.getMessage();
+        System.out.println();
+        obj2.getParentMessage();
     }
 }
